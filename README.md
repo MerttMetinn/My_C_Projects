@@ -12,6 +12,8 @@ A open source repository of different kinds of algorithms in C
 | 4 | [Student average sorting - Struct](https://github.com/MerttMetinn/My_C_Projects/blob/main/Ogrenci%20ortalama%20siralama%20Struct/main.c) |
 | 5 | [Sorting students from A to Z - Struct](https://github.com/MerttMetinn/My_C_Projects/blob/main/Sorting%20students%20from%20A%20to%20Z%20-%20Struct/main.c) |
 | 6 | [Swapping two values - Struct](https://github.com/MerttMetinn/My_C_Projects/blob/main/swapping%20two%20values%20-%20Struct/main.c) |
+| 7 | [enclosing circle - Struct](https://github.com/MerttMetinn/My_C_Projects/blob/main/enclosing%20circle%20-%20Struct/main.c) |
+| 8 | [symmetrical quad - Struct](https://github.com/MerttMetinn/My_C_Projects/blob/main/symmetrical%20quad%20-%20Struct/main.c) |
   
  </details>
  
