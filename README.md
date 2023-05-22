@@ -18,3 +18,14 @@ A open source repository of different kinds of algorithms in C
  </details>
  
  
+ <details>
+<summary> Array Projects </summary>
+  
+| Project |  Resource  |
+| :---------: | :----- |
+| 1 | [Intersection in matrices - Array](https://github.com/MerttMetinn/My_C_Projects/blob/main/Intersection%20in%20matrices%20-%20Array/main.c) |
+| 2 | [different numbers in two-dimensional arrays - Array](https://github.com/MerttMetinn/My_C_Projects/blob/main/different%20numbers%20in%20two-dimensional%20arrays%20-%20Array/main.c) |
+  
+ </details>
+ 
+ 
