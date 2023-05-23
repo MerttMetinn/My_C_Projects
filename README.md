@@ -29,3 +29,13 @@ A open source repository of different kinds of algorithms in C
  </details>
  
  
+ <details>
+<summary> String Projects </summary>
+  
+| Project |  Resource  |
+| :---------: | :----- |
+| 1 | [Text Analysis Program - Strings](https://github.com/MerttMetinn/My_C_Projects/blob/main/Text%20Analysis%20Program%20-%20Strings/main.c) |
+| 2 | [Plural words - Strings](https://github.com/MerttMetinn/My_C_Projects/blob/main/Plural%20words%20-%20Strings/main.c) |
+  
+ </details>
+ 
