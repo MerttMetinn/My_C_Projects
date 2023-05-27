@@ -39,6 +39,7 @@ A open source repository of different kinds of algorithms in C
 | 3 | [Shortened SMS - Strings](https://github.com/MerttMetinn/My_C_Projects/tree/main/Shortened%20SMS%20-%20Strings) |
 | 4 | [Searched word - Strings](https://github.com/MerttMetinn/My_C_Projects/tree/main/Searched%20word%20-%20Strings) |
 | 5 | [Print incrementally - Strings](https://github.com/MerttMetinn/My_C_Projects/tree/main/Print%20incrementally%20-%20Strings) |
+| 6 | [Print decrementally - Strings](https://github.com/MerttMetinn/My_C_Projects/tree/main/Print%20decrementally%20-%20Strings) |  
   
   
  </details>
