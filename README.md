@@ -36,7 +36,10 @@ A open source repository of different kinds of algorithms in C
 | :---------: | :----- |
 | 1 | [Text Analysis Program - Strings](https://github.com/MerttMetinn/My_C_Projects/tree/main/Text%20Analysis%20Program%20-%20Strings) |
 | 2 | [Plural words - Strings](https://github.com/MerttMetinn/My_C_Projects/tree/main/Plural%20words%20-%20Strings) |
-| 3 | [Shortened SMS - Strings](https://github.com/MerttMetinn/My_C_Projects/blob/main/Shortened%20SMS%20-%20Strings/Shortened%20SMS%20-%20Strings.c) |
+| 3 | [Shortened SMS - Strings](https://github.com/MerttMetinn/My_C_Projects/tree/main/Shortened%20SMS%20-%20Strings) |
+| 4 | [Searched word - Strings](https://github.com/MerttMetinn/My_C_Projects/tree/main/Searched%20word%20-%20Strings) |
+| 5 | [Print incrementally - Strings](https://github.com/MerttMetinn/My_C_Projects/tree/main/Print%20incrementally%20-%20Strings) |
+  
   
  </details>
  
