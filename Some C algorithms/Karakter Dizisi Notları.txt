@@ -1,0 +1,462 @@
+Karakter Dizisi Notları
+
+
+--------------------------------------------Kelimeyi tersten yazdırma, harf sayısı bulma, tek kelimelik ( boşluklu olmuyor )
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char kelime[20];
+
+    printf("Bir cumle girin :\n");
+    scanf("%s",kelime);                        //fgets(kelime, 100, stdin);
+
+    int kr_sayisi=0;
+
+    while(kelime[kr_sayisi]!='\0')
+    {
+        kr_sayisi++;
+    }
+
+    printf("\nToplam harf sayisi :%d",kr_sayisi);
+
+    printf("\nkelime tersten \n");
+
+    for(int i=kr_sayisi-1; i>=0 ; i--)
+    {
+        printf("%c",kelime[i]);
+    }
+
+    return 0;
+}
+--------------------------------------------
+
+--------------------------------------------
+
+gets(cumle);  //Enter girilene kadar kullanıcıdan değer alınır. //uzun cümlelerde sorunlu olabiliyor - taşma yapıyor ,KULLANMA
+
+puts(cumle); //printf içinde %s kullanmak yerine bunu kullanabilirsin. //printf("%s",cumle); aynı işlem
+
+gets yerine fgets
+
+fgets(kelime, 100, stdin);
+
+//klavyeden girilen metin icinden yine klayvyeden girilen bir karakterin kac defa gectigini bulan program
+https://youtu.be/0yRQiJZB_xQ?list=PLOsYO8J5EH_uTx_eLzan-bFSpjK-cJujY
+
+
+-->-->-->NULL bir işaretçinin değersiz bir durumu iken, '\0' karakteri bir karakter dizisinin sonunu belirtmek için kullanılır.
+
+
+
+                                            ---------------------STRTOK-----------------------
+
+                                                            Ne işe yarar?
+
+--> Strtok fonksiyonu bir karakter dizisini belirli bir ayırıcı karaktere göre parçalara ayırmak için kullanılır. 
+Bu fonksiyon, bir karakter dizisi ve bir ayırıcı karakter parametresi alır.
+
+strtok fonksiyonu, ilk çağrıldığında karakter dizisinin başlangıcından başlayarak ayırıcı karakteri bulur ve o noktaya kadar olan karakterleri bir alt diziye kopyalar. Bu alt dizi, strtok tarafından oluşturulur ve bir NULL karakteriyle sonlandırılır.
+
+Sonraki çağrılarda, fonksiyon, önceki çağrıdan kalan karakter dizisinin sonraki karakterinden başlayarak ayırıcı karakteri bulur ve o noktaya kadar olan karakterleri bir alt diziye kopyalar. Bu işlem, fonksiyon NULL bir işaretçiye ulaşana kadar devam eder.
+
+--> Bu işlem sonucunda, orijinal karakter dizisi değiştirilir ve her alt dizi, bir dizi işaretçi tarafından gösterilen bir dizi oluşturur. Bu işaretçiler, orijinal karakter dizisinin farklı bölümlerini gösterir ve ayrılmış parçaları işlemek için kullanılabilir.
+
+
+    char atilacaklar[] = " .,;:";
+
+    char metin[100]="Merhaba, bu bir örnek cümledir!";
+    char *token = strtok(metin,atilacaklar);
+
+    while(token != NULL)
+    {
+        printf("%s\n", token);
+        token = strtok(NULL, atilacaklar);
+    }
+ 
+
+Önce cümleden neyi istiyorsak o karakterleri eleman olarak alan ayrac diye bir dizi tanımlayıp ayrılmasını istediğimiz karakterleri bu diziye atarız. Daha sonra char tipinde "token" pointerını tanımlayıp strtok(metin,atilacaklar)'a eşitliyoruz, bu işlemin amacı strtok fonksiyonunu kullanarak, str karakter dizisindeki ilk parçayı (ayırıcı karakter tarafından ayrılmış) bulmak için kullanılır.
+
+---Quiz-4.2
+/*void KelimeBul (char *metin)
+{
+    char temizlenmis_metin[100];
+
+    strcpy(metin,temizlenmis_metin);
+
+    const char *ayrac = " .,;";
+    *temizlenmis_metin = strtok(metin, ayrac);
+
+    while (temizlenmis_metin != NULL)
+    {
+        printf("%s\n", temizlenmis_metin);
+        *temizlenmis_metin = strtok(NULL, ayrac);
+    }
+
+}*/
+
+
+----------------------------
+Önemli
+--> Strtok fonkiyonu ama ayraç içine manule girdi yerine ispunct ile noktalamaya denk gelindiğinde boşluk yazılıyor
+
+char *token;
+    char *ayrac = metin;
+
+    while(*ayrac != '\0')
+    {
+        if(ispunct(*ayrac)) //Ayraç'a noktalamaları tek tek girmek yerine metinde noktalamaya gelindiğinde onun yerine boşluk yazılıyor
+        {
+         *ayrac=' ';
+        }
+        ayrac++;
+    }
+
+    token = strtok(metin, " ");
+
+    while(token != NULL)
+    {
+        printf("%s ",token);
+        token = strtok(NULL, " ");
+    }
+-----------------------------------
+--> Quiz-5.2 denemeler
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char metin[100];
+
+    printf("Bir metin giriniz :");
+    fgets(metin, sizeof(metin) ,stdin);
+
+    printf("\nGirilen metin :%s",metin);
+
+    int boyut = strlen(metin)-1;
+
+    printf("\nKarakter sayisi :%d\n",boyut);
+
+    char *token;
+    char *ayrac = metin;
+
+    while(*ayrac != '\0')
+    {
+        if(ispunct(*ayrac)) //Ayraç'a noktalamaları tek tek girmek yerine metinde noktalamaya gelindiğinde onun yerine boşluk yazılıyor
+        {
+         *ayrac=' ';
+        }
+
+        ayrac++;
+    }
+
+    token = strtok(metin, " ");
+
+    while(token != NULL)
+    {
+        printf("%s ",token);
+        token = strtok(NULL, " ");
+    }
+
+
+
+    return 0;
+}
+
+----------------Ekrana kalp basıyor
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char metin[100];
+    char rakamlar[100];
+    int m=0;
+
+    printf("Bir metin giriniz :");
+    fgets(metin,sizeof(metin),stdin);
+
+    for(int i=0 ; i<strlen(metin) ; i++)
+    {
+        if(metin[i]>='0' && metin[i]<='9')
+        {
+            rakamlar[m]=metin[i];
+            m++;
+            sprintf(metin,"Girilen metinde bulunan rakamlar: %s",rakamlar);
+        }
+    }
+
+    printf("\nadamsin knk %s\n",rakamlar);
+
+    return 0;
+}
+
+------------------------------------------
+
+sprintf --- Birleştirmeye yarıyor.  ssprintf(metin,"Girilen metinde %d %f %d bulunuyor",x,y,z);
+
+sscanf --- parçalama yarıyor.
+
+
+----------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    //parçalamayı sprintfle yapmaya çalışıyoruz
+    const char tarih[]="2022050315";
+    //Sonladırma karakterinden dolayı +1 ekledik
+    char yil[5];
+    char ay[3];
+    char gun[3];
+    char saat[3];
+
+    sprintf(yil,"%.4s",&tarih[0]);
+
+    sprintf(ay,"%.2s",&tarih[0+4]);
+
+    sprintf(gun,"%.2s",&tarih[0+4+2]);
+
+    sprintf(saat,"%.2s",&tarih[0+4+2+2]);
+
+    printf("\nyil:%s",yil);
+    printf("\nay:%s",ay);
+    printf("\ngun:%s",gun);
+    printf("\nsaat:%s",saat);
+    return 0;
+}
+
+---------
+
+while(getchar() != '\n'); // Art arda scanf çalıştırırsan fflush(stdin); yerine kullanabilirsin.
+
+isprint // karakter yazdırılabilir mi? ---Yazdırılamıyorsa sıfır döndürür.
+
+isalnum() fonksiyonu
+Fonksiyona geçirilen c parametre değerinin alfabede bulunan bir harf ve bir rakam olup olmadığını kontrol eder.
+
+
+Örnek girdiler
+
+1.seneryo
+--
+Bir metin giriniz :
+test
+
+Girilen metin :test
+Girilen metnin boyutu : 4
+Referans numarasi giriniz :12
+
+Girilen metin referans numarasindan buyuk OLAMAZ!
+--
+2.seneryo
+--
+Bir metin giriniz :
+ert541* }-q12,,,-p
+
+Girilen metin :ert541* }-q12,,,-p
+Girilen metnin boyutu : 18
+Referans numarasi giriniz :3
+
+---Temizlenmis metin---
+ert 541 q 12 p
+
+Girilen cumlede 5 adet rakam vardir
+
+Girilen cumlede 5 adet harf vardir
+
+Girilen cumlede 8 adet isaret vardir
+
+Referans anahtari son bolumu: 10
+
+Nihai referans anahtari:er-tqp-10
+--
+3.seneryo
+--
+Bir metin giriniz :
+test--jhyug..+ghjki
+
+Girilen metin :test--jhyug..+ghjki
+Girilen metnin boyutu : 19
+Referans numarasi giriniz :5
+
+---Temizlenmis metin---
+test jhyug ghjki
+Girilen cumlede 0 adet rakam vardir
+
+Girilen cumlede 14 adet harf vardir
+
+Girilen cumlede 5 adet isaret vardir
+
+Rakam bulunmadigindan referans numarasi rasgele atanacaktir :57989
+
+Nihai referans anahtari :test-jhyug-ghjki-57989
+
+
+------------------------------------------------------------------------------------------------
+#Tekrar Bak 7 Mayıs
+
+(1)Sscanf ile 4 adet tamsayı içerikli dizginin sayısal toplamı
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char str[20];
+    int sum = 0;
+    int i, num;
+
+    for (i = 0; i < 4; i++) {
+        printf("Enter a number: ");
+        scanf("%s", str);
+        sscanf(str, "%d", &num);
+        sum += num;
+    }
+
+    printf("The sum is: %d", sum);
+    return 0;
+}
+
+(strncpy) -- Bir dizideki n adet karakteri başka bir diziye kopyalamaya yarar
+
+    char dizi1[]="Merhaba selam onyedi";
+    char dizi2[100];
+
+    strncpy(dizi2,dizi1,10);
+    printf("%s",dizi2);
+---
+
+(strcat) -- Karakter dizilerini birleştirmeye yarar
+
+    char dizi1[20]="Merhaba";
+    char dizi2[20]=" ben Mert";
+
+    //Burada ilk önce birleşmenin olacağı diziyi, sonra hangi diziyle birleştireceğimizi yazıyoruz
+    //Dizi 1 diyerek birleştirme işleminin 1.dizide olacağını belirttik sonra dizi2 diyerek de dizi1'e dizi2'yi ekledik 
+    //Farkettiysen birleştirme işlemini dizi1'de yaptığımız için dizi1 değişti, en son da onu yazdırarak son halini görmüş olduk
+
+    strcat(dizi1,dizi2);          
+    printf("%s",dizi1); 
+---
+
+(strncat) -- Karakter dizilerine n tane karakter birleştirmeye yarar. 
+
+strncat(dizi1,dizi2,8);
+---
+
+(strrev) -- Girilen kelimeyi ters çevirir //Reverse//
+
+strrev(dizi1);
+---
+
+(strlwr) -- Girilen kelimedeki bütün harfleri küçük harfe çevirir
+
+strlwr(dizi1);
+---
+
+(strupr) -- Girilen kelimedeki bütün harfleri büyük harfe çevirir
+
+strupr(dizi1);
+---
+
+(strstr) -- 
+
+
+
+Kelime Sayısı Hesaplama (Optimize)
+------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int kelime_say=1;
+    char cumle[100];
+    printf("Kelime sayisi hesaplanacak cumleyi giriniz :");
+    fgets(cumle,sizeof(cumle),stdin);
+
+    printf("\nCumlemiz : %s",cumle);
+
+    int uzunluk = strlen(cumle);
+    if (cumle[uzunluk-1] == '\n') {   // Son karakter bir satır sonu karakteri mi?
+        cumle[uzunluk-1] = '\0';     // Son karakteri null karakteriyle değiştir
+        uzunluk--;                   // Karakter sayısından bir çıkar
+    }
+
+    for(int i=0; i<uzunluk; i++) {
+        if(cumle[i]==' ') {
+            kelime_say++;
+        }
+    }
+
+    printf("\nKelime sayisi : %d",kelime_say);
+    return 0;
+}
+------------------------------------------------------------------------------------
+
+cumle[strcspn(cumle, "\n")] = '\0'; // remove newline character
+
+fgets ile alınan cümlenin cümle sonu karakterini \n ile değiştir
+
+ifade1 ? ifade2 : ifade3
+ifade 1 doğruysa 2'yi döndürüyor yanlışsa 3'ü
+
+
+ qsort fonksiyonu, C dilinde standart bir kütüphane fonksiyonudur ve hızlı sıralama (quicksort) algoritmasını uygular. qsort fonksiyonu, dizi sıralama işlemlerini kolay ve etkili bir şekilde gerçekleştirmenizi sağlar. qsort fonksiyonunu kullanmak için stdlib.h başlık dosyasını dahil etmeniz gerekir.
+qsort fonksiyonunun imzası şu şekildedir:
+
+
+void qsort(void *base, size_t nitems, size_t size, int (*compar)(const void *, const void *));
+Parametreler:
+base:           Sıralanacak dizinin başlangıç adresi (pointer).
+nitems:         Dizideki eleman sayısı.
+size:           Her bir elemanın boyutu (byte cinsinden).
+compar:         İki elemanı karşılaştırmak için kullanılacak fonksiyonun adresi (pointer). Bu fonksiyon, iki elemanın             adresini alır ve aşağıdaki değerlerden birini döndürür:
+
+    Negatif değer: İlk eleman, ikinci elemandan küçüktür.
+    Sıfır: İki eleman eşittir.
+    Pozitif değer: İlk eleman, ikinci elemandan büyüktür.
+
+
+QuickSort in C 
+------------------------
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare_integers(const void *a, const void *b)
+{
+    int int_a = *((int *)a);
+    int int_b = *((int *)b);
+
+    if (int_a < int_b)
+        return -1;
+    if (int_a > int_b)
+        return 1;
+    return 0;
+}
+
+int main()
+{
+    int numbers[] = {5, 3, 1, 4, 2};
+    int n = sizeof(numbers) / sizeof(numbers[0]);
+
+    qsort(numbers, n, sizeof(int), compare_integers);
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", numbers[i]);
+    }
+
+    return 0;
+}

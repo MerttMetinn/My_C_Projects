@@ -1,0 +1,22 @@
+rand() % 100         // [0,99] aralığında sayı üretir.
+rand() % 6 + 1     // [0+1,5+1] = [1,6] aralığında sayı üretir.
+
+sayi = alt_sinir + rand() % (ust_sinir - alt_sinir + 1);
+
+"alt_sınır <= Oluşacak elemanlar <= üst_sınır" aralığında olacaktır.
+
+100 % 100 = 0
+
+Even number like
+132142151515151514123412312321 % 100 = 21
+
+The biggest possible number is
+99 % 100 = 99
+
+That said use
+
+rand() % 101 to get 0–100
+
+and
+
+rand() % 100 + 1 to get 1–100
