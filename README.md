@@ -14,6 +14,7 @@ A open source repository of different kinds of algorithms in C
 | 6 | [Swapping two values - Struct](https://github.com/MerttMetinn/My_C_Projects/tree/main/Swapping%20two%20values%20-%20Struct) |
 | 7 | [Enclosing circle - Struct](https://github.com/MerttMetinn/My_C_Projects/tree/main/Enclosing%20circle%20-%20Struct) |
 | 8 | [Symmetrical quad - Struct](https://github.com/MerttMetinn/My_C_Projects/tree/main/Symmetrical%20quad%20-%20Struct) |
+| 9 | [Small Triangles, Large Triangles - Struct - HR](https://github.com/MerttMetinn/My_C_Projects/tree/main/Small%20Triangles%2C%20Large%20Triangles%20-%20Struct%20-%20HR) |
   
  </details>
  
