@@ -1,0 +1,59 @@
+(1)---> Variadic Functions in C / Değişken Fonksiyonlar
+
+(1)--------------------------------->
+#include <stdarg.h> kütüphanesi içinde bulunur.
+
+https://qph.cf2.quoracdn.net/main-qimg-b8009443169bf5f6aa583a3c8fc93bb4
+
+Değişken fonksiyonların kullanımı aşağıdaki adımlarla gerçekleştirilir:
+
+1-stdarg.h başlık dosyasını dahil edin.
+
+2-Değişken argümanları işleyecek fonksiyonu tanımlayın ve parametre listesine ... ekleyin.
+
+3-va_list türünde bir değişken tanımlayın.
+
+4-va_start makrosunu kullanarak va_list değişkenini ilk değişken argümana ayarlayın.
+
+5-va_arg makrosunu kullanarak va_list üzerinden argümanlara erişin.
+
+6-Tüm değişken argümanları işledikten sonra va_end makrosunu kullanarak va_list değişkenini temizleyin.
+
+------------------------------------------------------------------------------
+
+(2)---> What is fmax() in C?
+
+(2)--------------------------------->
+
+fmax() is a C library function that returns the larger numeric value of its two arguments.
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+    double x=17.85, y=8.16, result;
+
+    result = fmax(x, y);
+
+    printf("%.2f ve %.2f değerlerinin işlem sonucu: %.2f", x, y, result);
+
+    return 0;
+}
+
+17.85 ve 8.16 değerlerinin işlem sonucu: 17.85
+------------------------------------------------------------------------------
+
+(3)---> pow, powf, powl
+
+(3)--------------------------------->
+
+float powf( float base, float exponent );
+
+double pow( double base, double exponent );
+
+long double powl( long double base, long double exponent );
+
+Defined in header <tgmath.h>
+
+------------------------------------------------------------------------------
+
