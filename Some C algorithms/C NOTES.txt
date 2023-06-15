@@ -1,6 +1,7 @@
 (1)---> Variadic Functions in C / Değişken Fonksiyonlar
 
 (1)--------------------------------->
+
 #include <stdarg.h> kütüphanesi içinde bulunur.
 
 https://qph.cf2.quoracdn.net/main-qimg-b8009443169bf5f6aa583a3c8fc93bb4
@@ -55,5 +56,77 @@ long double powl( long double base, long double exponent );
 
 Defined in header <tgmath.h>
 
+Notes
+Although pow cannot be used to obtain a root of a negative number, cbrt is provided for the common case where exponent is 1/3.
+
+Powda negatif üs olmuyor, -1'le çarpıp ters çevir.
+
 ------------------------------------------------------------------------------
 
+(4)---> To return the integer array from the function
+
+(4)--------------------------------->
+
+ * To return the integer array from the function, you should:
+ *     - Store the size of the array to be returned in the result_count variable
+ *     - Allocate the array statically or dynamically
+ *
+ * For example,
+ * int* return_integer_array_using_static_allocation(int* result_count) {
+ *     *result_count = 5;
+ *
+ *     static int a[5] = {1, 2, 3, 4, 5};
+ *
+ *     return a;
+ * }
+ *
+ * int* return_integer_array_using_dynamic_allocation(int* result_count) {
+ *     *result_count = 5;
+ *
+ *     int *a = malloc(5 * sizeof(int));
+ *
+ *     for (int i = 0; i < 5; i++) {
+ *         *(a + i) = i + 1;
+ *     }
+ *
+ *     return a;
+ * }
+ *
+ */
+
+------------------------------------------------------------------------------
+
+(5)---> To return the string from the function
+
+(5)--------------------------------->
+
+/*
+ * To return the string from the function, you should either do static allocation or dynamic allocation
+ *
+ * For example,
+ * char* return_string_using_static_allocation() {
+ *     static char s[] = "static allocation of string";
+ *
+ *     return s;
+ * }
+ *
+ * char* return_string_using_dynamic_allocation() {
+ *     char* s = malloc(100 * sizeof(char));
+ *
+ *     s = "dynamic allocation of string";
+ *
+ *     return s;
+ * }
+ *
+ */
+
+------------------------------------------------------------------------------
+
+(6)---> 
+
+(6)--------------------------------->
+
+ 
+
+
+------------------------------------------------------------------------------
